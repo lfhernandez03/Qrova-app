@@ -40,7 +40,7 @@ El MVP cubre todo lo necesario para que un usuario llegue, genere un QR, lo pers
     }
   }
   ```
-- [ ] Instalar fuentes en `app/layout.tsx`: Inter + JetBrains Mono desde `next/font/google`
+- [x] Instalar fuentes en `app/layout.tsx`: Inter + JetBrains Mono desde `next/font/google`
 - [ ] Configurar variables de entorno: `DATABASE_URL`, `CLERK_*`, `UPLOADTHING_*`, `RESEND_API_KEY`, `NEXT_PUBLIC_APP_URL`
 - [ ] Setup Prisma + Neon: `npm install prisma @prisma/client`, `npx prisma init`, configurar `DATABASE_URL` en `.env`
 - [ ] Definir schema Prisma inicial (ver Bloque 1)
