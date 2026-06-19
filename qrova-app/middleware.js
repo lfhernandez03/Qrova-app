@@ -1,10 +1,9 @@
-import { clerkMiddleware } from "@clerk/nextjs/server";
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-// `publicRoutes` isn't a recognized property on Clerk's middleware options in
-// the current types. Cast to `any` to preserve runtime behavior while
-// satisfying TypeScript.
-export default clerkMiddleware({
-  publicRoutes: ["/sign-in", "/sign-up", "/"],
+const isProtectedRoute = createRouteMatcher(["/dashboard(.*)"]);
+
+export default clerkMiddleware((auth, req) => {
+  if (isProtectedRoute(req)) auth.protect();
 });
 
 export const config = {
