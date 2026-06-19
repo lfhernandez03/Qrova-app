@@ -32,6 +32,7 @@
     "react-dom": "19.2.4",
     "recharts": "^3.8.1",
     "resend": "^6.12.4",
+    "svix": "^1.96.0",
     "ua-parser-js": "^2.0.10",
     "uploadthing": "^7.7.4",
     "zod": "^4.4.3"
