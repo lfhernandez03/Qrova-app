@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { BarChart3, Palette, Zap } from "lucide-react";
 
 type BadgeVariant = "gratis" | "con-cuenta" | "todas";
 
@@ -15,7 +16,8 @@ const BADGE_LABELS: Record<BadgeVariant, string> = {
 };
 
 interface FeatureCardProps {
-  icon: React.ReactNode;
+  icon: React.ElementType;
+  iconClassName: string;
   iconBg: string;
   title: string;
   description: string;
@@ -23,7 +25,8 @@ interface FeatureCardProps {
 }
 
 const FeatureCard = ({
-  icon,
+  icon: Icon,
+  iconClassName,
   iconBg,
   title,
   description,
@@ -32,9 +35,9 @@ const FeatureCard = ({
   <article className="flex flex-col gap-4 bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
     <div className="flex items-start justify-between gap-3">
       <div className={cn("size-10 rounded-xl flex items-center justify-center shrink-0", iconBg)}>
-        {icon}
+        <Icon className={cn("size-5", iconClassName)} strokeWidth={1.5} />
       </div>
-      <span className={cn("text-xs font-medium rounded-full px-2.5 py-1", BADGE_STYLES[badge])}>
+      <span className={cn("text-xs font-medium rounded-full px-2.5 py-1 shrink-0", BADGE_STYLES[badge])}>
         {BADGE_LABELS[badge]}
       </span>
     </div>
@@ -45,43 +48,10 @@ const FeatureCard = ({
   </article>
 );
 
-const LightningIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
-    <path
-      d="M11 2L4 11h6l-1 7 7-9h-6l1-7z"
-      stroke="#F4623A"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const BarChartIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
-    <rect x="3" y="10" width="3" height="7" rx="1" fill="#6366F1" />
-    <rect x="8.5" y="6" width="3" height="11" rx="1" fill="#6366F1" />
-    <rect x="14" y="3" width="3" height="14" rx="1" fill="#6366F1" />
-  </svg>
-);
-
-const PaletteIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
-    <path
-      d="M10 2a8 8 0 1 0 4.47 14.68A2 2 0 0 0 13 13h-1a2 2 0 0 1-2-2V9"
-      stroke="#A855F7"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-    />
-    <circle cx="6.5" cy="7.5" r="1" fill="#A855F7" />
-    <circle cx="10" cy="5" r="1" fill="#A855F7" />
-    <circle cx="13.5" cy="7.5" r="1" fill="#A855F7" />
-  </svg>
-);
-
 const FEATURES: FeatureCardProps[] = [
   {
-    icon: <LightningIcon />,
+    icon: Zap,
+    iconClassName: "text-coral-400",
     iconBg: "bg-coral-50",
     title: "Sin registro requerido",
     description:
@@ -89,7 +59,8 @@ const FEATURES: FeatureCardProps[] = [
     badge: "gratis",
   },
   {
-    icon: <BarChartIcon />,
+    icon: BarChart3,
+    iconClassName: "text-indigo-500",
     iconBg: "bg-indigo-50",
     title: "Analytics en tiempo real",
     description:
@@ -97,7 +68,8 @@ const FEATURES: FeatureCardProps[] = [
     badge: "con-cuenta",
   },
   {
-    icon: <PaletteIcon />,
+    icon: Palette,
+    iconClassName: "text-purple-500",
     iconBg: "bg-purple-50",
     title: "100% personalizable",
     description:
@@ -109,18 +81,15 @@ const FEATURES: FeatureCardProps[] = [
 const FeaturesSection = () => (
   <section className="bg-white py-20 lg:py-28">
     <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-12">
-      {/* Header */}
       <div className="text-center max-w-xl flex flex-col gap-3">
         <h2 className="text-3xl font-bold text-gray-900">
           Todo lo que necesitas, nada de lo que no
         </h2>
         <p className="text-gray-500 text-lg leading-relaxed">
-          Empieza gratis y sin fricción. Activa más funciones cuando las
-          necesites.
+          Empieza gratis y sin fricción. Activa más funciones cuando las necesites.
         </p>
       </div>
 
-      {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
         {FEATURES.map((feature) => (
           <FeatureCard key={feature.title} {...feature} />
