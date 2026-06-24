@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id          String   @id @default(uuid())
+  clerkId     String   @unique
+  name        String?
+  email       String   @unique
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  workspaceId String?
+
+  workspace Workspace? @relation(fields: [workspaceId], references: [id])
+}
+
+model Workspace {
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  qrcode    QRCode?
+  users     User[]
+  presets   Preset[]
+}
+
+model QRCode {
+  id          String       @id @default(uuid())
+  workspaceId String       @unique
+  slug        String       @unique
+  name        String
+  type        QRCodeType
+  destination String
+  style       Json
+  status      QRCodeStatus @default(ACTIVE)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id])
+  scans     Scan[]
+
+  @@index([workspaceId])
+  @@index([slug])
+}
+
+enum QRCodeType {
+  STATIC
+  DYNAMIC
+}
+
+enum QRCodeStatus {
+  ACTIVE
+  ARCHIVED
+}
+
+model Preset {
+  id          String    @id @default(uuid())
+  workspaceId String
+  name        String
+  baseTheme   String?
+  style       Json
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  workspace   Workspace @relation(fields: [workspaceId], references: [id])
+}
+
+model Scan {
+  id        String   @id @default(uuid())
+  qrcodeId  String
+  country   String?
+  city      String?
+  device    String?
+  os        String?
+  browser   String?
+  ip        String?
+  scannedAt DateTime @default(now())
+
+  qrcode QRCode @relation(fields: [qrcodeId], references: [id])
+
+  @@index([qrcodeId, scannedAt])
+}
