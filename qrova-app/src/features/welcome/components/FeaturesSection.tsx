@@ -1,3 +1,4 @@
+import SectionHeader from "@/components/ui/section-header";
 import { cn } from "@/lib/utils";
 import { BarChart3, Palette, Zap } from "lucide-react";
 
@@ -81,14 +82,11 @@ const FEATURES: FeatureCardProps[] = [
 const FeaturesSection = () => (
   <section className="bg-white py-20 lg:py-28">
     <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-12">
-      <div className="text-center max-w-xl flex flex-col gap-3">
-        <h2 className="text-3xl font-bold text-gray-900">
-          Todo lo que necesitas, nada de lo que no
-        </h2>
-        <p className="text-gray-500 text-lg leading-relaxed">
-          Empieza gratis y sin fricción. Activa más funciones cuando las necesites.
-        </p>
-      </div>
+      <SectionHeader
+        title="Todo lo que necesitas, nada de lo que no"
+        subtitle="Empieza gratis y sin fricción. Activa más funciones cuando las necesites."
+        className="max-w-xl"
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
         {FEATURES.map((feature) => (

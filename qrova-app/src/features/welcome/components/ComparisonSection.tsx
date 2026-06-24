@@ -1,3 +1,4 @@
+import SectionHeader from "@/components/ui/section-header";
 import { Check } from "lucide-react";
 
 const CheckMark = () => (
@@ -18,15 +19,10 @@ const ROWS = [
 const ComparisonSection = () => (
   <section className="bg-white py-20 lg:py-28">
     <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-10">
-      {/* Header */}
-      <div className="text-center flex flex-col gap-2">
-        <h2 className="text-3xl font-bold text-gray-900">
-          Invitado vs. Con cuenta
-        </h2>
-        <p className="text-gray-500">
-          Sin sorpresas. Aquí está todo lo que puedes hacer en cada modo.
-        </p>
-      </div>
+      <SectionHeader
+        title="Invitado vs. Con cuenta"
+        subtitle="Sin sorpresas. Aquí está todo lo que puedes hacer en cada modo."
+      />
 
       {/* Table */}
       <div className="w-full max-w-2xl rounded-xl border border-gray-200 overflow-hidden">

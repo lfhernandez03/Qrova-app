@@ -1,3 +1,4 @@
+import SectionHeader from "@/components/ui/section-header";
 import { Download, Globe, Palette } from "lucide-react";
 
 const STEPS = [
@@ -27,10 +28,10 @@ const STEPS = [
 const HowItWorksSection = () => (
   <section className="bg-gray-50 py-20 lg:py-28">
     <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-12">
-      <div className="text-center flex flex-col gap-2">
-        <h2 className="text-3xl font-bold text-gray-900">Así de fácil</h2>
-        <p className="text-gray-500">Tres pasos para tener tu QR listo</p>
-      </div>
+      <SectionHeader
+        title="Así de fácil"
+        subtitle="Tres pasos para tener tu QR listo"
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full max-w-3xl">
         {STEPS.map(({ number, icon: Icon, title, description }) => (

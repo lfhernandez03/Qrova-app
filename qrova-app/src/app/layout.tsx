@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-inter",
 });
@@ -26,8 +26,8 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="es" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-        <body>{children}</body>
+      <html lang="es" className={`${plusJakartaSans.variable} ${jetbrainsMono.variable}`}>
+        <body className={plusJakartaSans.className}>{children}</body>
       </html>
     </ClerkProvider>
   );
