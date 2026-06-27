@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -26,8 +27,18 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="es" className={`${plusJakartaSans.variable} ${jetbrainsMono.variable}`}>
-        <body className={plusJakartaSans.className}>{children}</body>
+      <html lang="es" className={`${plusJakartaSans.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+        <head>
+          {/* Prevents flash of unstyled content on theme load */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(){var t=localStorage.getItem('qrova-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.classList.toggle('dark',t==='dark')})()`,
+            }}
+          />
+        </head>
+        <body className={plusJakartaSans.className}>
+          <ThemeProvider>{children}</ThemeProvider>
+        </body>
       </html>
     </ClerkProvider>
   );

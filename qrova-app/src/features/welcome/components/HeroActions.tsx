@@ -11,7 +11,7 @@ const HeroActions = () => (
     </Link>
     <Link
       href="/sign-in"
-      className="inline-flex items-center gap-1 text-gray-700 hover:text-gray-900 font-medium text-sm transition-colors"
+      className="inline-flex items-center gap-1 text-fg-secondary hover:text-fg-primary font-medium text-sm transition-colors"
     >
       Iniciar sesión <span aria-hidden>›</span>
     </Link>

@@ -27,6 +27,33 @@
 @theme inline {
   --font-heading: var(--font-sans);
   --font-sans: var(--font-sans);
+
+  /* Semantic surface tokens */
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-surface-muted: var(--surface-muted);
+
+  /* Foreground / text tokens */
+  --color-fg-primary: var(--fg-primary);
+  --color-fg-secondary: var(--fg-secondary);
+  --color-fg-muted: var(--fg-muted);
+
+  /* Stroke / border tokens */
+  --color-stroke: var(--stroke);
+  --color-stroke-subtle: var(--stroke-subtle);
+
+  /* Brand semantic tokens */
+  --color-brand-light: var(--brand-light);
+  --color-brand-text: var(--brand-text);
+
+  /* Success semantic tokens */
+  --color-success-light: var(--success-light);
+  --color-success-text: var(--success-text);
+
+  /* Chrome (navbar / footer) */
+  --color-chrome-bg: var(--chrome-bg);
+
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -92,6 +119,23 @@
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
   --radius: 0.625rem;
+
+  /* Semantic light tokens */
+  --surface: #FFFFFF;
+  --surface-raised: #FFFFFF;
+  --surface-subtle: #F9FAFB;
+  --surface-muted: #F3F4F6;
+  --fg-primary: #111827;
+  --fg-secondary: #4B5563;
+  --fg-muted: #9CA3AF;
+  --stroke: #E5E7EB;
+  --stroke-subtle: #F3F4F6;
+  --brand-light: #FFF1EE;
+  --brand-text: #B03C1E;
+  --success-light: #ECFDF5;
+  --success-text: #065F46;
+  --chrome-bg: #111827;
+
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -126,6 +170,22 @@
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
+  /* Semantic dark tokens */
+  --surface: #1E1E24;
+  --surface-raised: #26262E;
+  --surface-subtle: #222229;
+  --surface-muted: #32323C;
+  --fg-primary: #F0F0F5;
+  --fg-secondary: #B0B0BF;
+  --fg-muted: #80808F;
+  --stroke: #3E3E4A;
+  --stroke-subtle: #32323C;
+  --brand-light: #2A1009;
+  --brand-text: #FF8B77;
+  --success-light: #052E1C;
+  --success-text: #6EE7B7;
+  --chrome-bg: #16161C;
+
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);

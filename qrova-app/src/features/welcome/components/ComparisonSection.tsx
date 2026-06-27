@@ -6,7 +6,7 @@ const CheckMark = () => (
 );
 
 const Dash = () => (
-  <span className="block text-center text-gray-300 select-none">—</span>
+  <span className="block text-center text-stroke select-none">—</span>
 );
 
 const ROWS = [
@@ -17,7 +17,7 @@ const ROWS = [
 ] as const;
 
 const ComparisonSection = () => (
-  <section className="bg-white py-20 lg:py-28">
+  <section className="bg-surface py-20 lg:py-28">
     <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-10">
       <SectionHeader
         title="Invitado vs. Con cuenta"
@@ -25,16 +25,16 @@ const ComparisonSection = () => (
       />
 
       {/* Table */}
-      <div className="w-full max-w-2xl rounded-xl border border-gray-200 overflow-hidden">
+      <div className="w-full max-w-2xl rounded-xl border border-stroke overflow-hidden">
         {/* Header */}
-        <div className="grid grid-cols-[1fr_120px_120px] bg-white border-b border-gray-200">
-          <div className="px-5 py-4 text-xs font-semibold tracking-widest text-gray-400 uppercase">
+        <div className="grid grid-cols-[1fr_120px_120px] bg-surface-raised border-b border-stroke">
+          <div className="px-5 py-4 text-xs font-semibold tracking-widest text-fg-muted uppercase">
             Funcionalidad
           </div>
-          <div className="px-5 py-4 text-xs font-semibold tracking-widest text-gray-500 uppercase text-center">
+          <div className="px-5 py-4 text-xs font-semibold tracking-widest text-fg-muted uppercase text-center">
             Invitado
           </div>
-          <div className="px-5 py-4 text-xs font-semibold tracking-widest text-gray-500 uppercase text-center">
+          <div className="px-5 py-4 text-xs font-semibold tracking-widest text-fg-muted uppercase text-center">
             Gratis
           </div>
         </div>
@@ -43,11 +43,11 @@ const ComparisonSection = () => (
         {ROWS.map(({ feature, guest, free }, i) => (
           <div
             key={feature}
-            className={`grid grid-cols-[1fr_120px_120px] border-b border-gray-100 last:border-0 ${
-              i % 2 === 1 ? "bg-gray-50/50" : "bg-white"
+            className={`grid grid-cols-[1fr_120px_120px] border-b border-stroke-subtle last:border-0 ${
+              i % 2 === 1 ? "bg-surface-subtle" : "bg-surface-raised"
             }`}
           >
-            <div className="px-5 py-4 text-sm text-gray-600">{feature}</div>
+            <div className="px-5 py-4 text-sm text-fg-secondary">{feature}</div>
             <div className="px-5 py-4">{guest ? <CheckMark /> : <Dash />}</div>
             <div className="px-5 py-4">{free ? <CheckMark /> : <Dash />}</div>
           </div>

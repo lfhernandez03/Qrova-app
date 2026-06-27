@@ -13,7 +13,7 @@ const HeroSocialProof = () => (
       {AVATARS.map(({ initials, className }) => (
         <div
           key={initials}
-          className={`size-8 rounded-full ${className} flex items-center justify-center text-white text-xs font-semibold border-2 border-white`}
+          className={`size-8 rounded-full ${className} flex items-center justify-center text-white text-xs font-semibold border-2 border-surface`}
         >
           {initials}
         </div>
@@ -25,7 +25,7 @@ const HeroSocialProof = () => (
           <Star key={i} className="size-3.5 fill-amber-400 text-amber-400" />
         ))}
       </div>
-      <p className="text-sm text-gray-500">+1,200 negocios en LATAM</p>
+      <p className="text-sm text-fg-muted">+1,200 negocios en LATAM</p>
     </div>
   </div>
 );
