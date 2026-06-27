@@ -1,17 +1,19 @@
 import Logo from "@/components/ui/logo";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <nav className="bg-gray-900 border-b border-white/10">
+    <nav className="bg-chrome-bg border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Logo />
 
         {/* Actions */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
           <Link
             href="/sign-in"
-            className="text-sm text-gray-300 hover:text-white transition-colors"
+            className="text-sm text-gray-300 hover:text-white transition-colors px-2"
           >
             Iniciar sesión
           </Link>

@@ -26,7 +26,7 @@ const STEPS = [
 ] as const;
 
 const HowItWorksSection = () => (
-  <section className="bg-gray-50 py-20 lg:py-28">
+  <section className="bg-surface-subtle py-20 lg:py-28">
     <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-12">
       <SectionHeader
         title="Así de fácil"
@@ -37,16 +37,16 @@ const HowItWorksSection = () => (
         {STEPS.map(({ number, icon: Icon, title, description }) => (
           <div key={number} className="flex flex-col items-center text-center gap-4">
             <div className="relative">
-              <div className="size-16 rounded-2xl bg-white border border-gray-200 flex items-center justify-center shadow-sm">
-                <Icon className="size-7 text-gray-400" strokeWidth={1.5} />
+              <div className="size-16 rounded-2xl bg-surface-raised border border-stroke flex items-center justify-center shadow-sm">
+                <Icon className="size-7 text-fg-muted" strokeWidth={1.5} />
               </div>
               <span className="absolute -top-2 -right-2 size-6 rounded-full bg-coral-400 text-white text-xs font-bold flex items-center justify-center">
                 {number}
               </span>
             </div>
             <div className="flex flex-col gap-1.5">
-              <h3 className="font-bold text-gray-900">{title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{description}</p>
+              <h3 className="font-bold text-fg-primary">{title}</h3>
+              <p className="text-fg-muted text-sm leading-relaxed">{description}</p>
             </div>
           </div>
         ))}

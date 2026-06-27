@@ -97,33 +97,33 @@ const HeroQRPreview = () => (
     <div className="absolute inset-0 bg-coral-400/10 blur-3xl rounded-full scale-75" />
 
     {/* Card */}
-    <div className="relative bg-white rounded-2xl shadow-2xl border border-gray-100 p-5 w-72">
+    <div className="relative bg-surface-raised rounded-2xl shadow-2xl border border-stroke-subtle p-5 w-72">
       {/* URL bar */}
       <div className="flex items-center justify-between mb-4">
-        <span className="font-mono text-xs text-gray-500">qrova.app/r/mi-qr</span>
-        <div className="flex items-center gap-1 bg-emerald-50 text-emerald-800 rounded-full px-2 py-0.5 text-xs font-medium">
+        <span className="font-mono text-xs text-fg-muted">qrova.app/r/mi-qr</span>
+        <div className="flex items-center gap-1 bg-success-light text-success-text rounded-full px-2 py-0.5 text-xs font-medium">
           <span className="size-1.5 rounded-full bg-emerald-400" />
           Activo
         </div>
       </div>
 
-      {/* QR code */}
-      <div className="flex justify-center rounded-xl overflow-hidden bg-white p-2 border border-gray-100">
+      {/* QR code — white background always for readability */}
+      <div className="flex justify-center rounded-xl overflow-hidden bg-white p-2 border border-stroke-subtle">
         <QRCodeSVG />
       </div>
 
       {/* CTA button */}
-      <div className="mt-4 bg-coral-50 border border-coral-100 rounded-lg px-4 py-2.5 text-center">
+      <div className="mt-4 bg-brand-light border border-stroke-subtle rounded-lg px-4 py-2.5 text-center">
         <p className="text-coral-500 font-semibold text-sm">Ver Menú</p>
-        <p className="text-gray-400 text-xs font-mono mt-0.5">mibodega.com/menu</p>
+        <p className="text-fg-muted text-xs font-mono mt-0.5">mibodega.com/menu</p>
       </div>
 
       {/* Stats */}
-      <div className="mt-4 grid grid-cols-3 divide-x divide-gray-100">
+      <div className="mt-4 grid grid-cols-3 divide-x divide-stroke-subtle">
         {STATS.map(({ value, label }) => (
           <div key={label} className="text-center px-2">
-            <p className="text-gray-900 font-bold text-base">{value}</p>
-            <p className="text-gray-400 text-xs">{label}</p>
+            <p className="text-fg-primary font-bold text-base">{value}</p>
+            <p className="text-fg-muted text-xs">{label}</p>
           </div>
         ))}
       </div>
